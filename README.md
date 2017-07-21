@@ -27,5 +27,5 @@ This project contains modified OpenSSL codes and necessary wrapper functions to 
 2. Some codes(md_rand.c, rand_unix.c) are from Intel® SGX SSL: https://github.com/01org/intel-sgx-ssl.
 
 ### Contact
-Juhyeng Han sparkly9399@gmail.com
+Juhyeng Han sparkly9399@gmail.com <br />
 Seongmin Kim dallas1004@gmail.com
