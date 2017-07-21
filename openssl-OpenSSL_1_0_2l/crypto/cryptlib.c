@@ -980,11 +980,13 @@ void OPENSSL_showfatal(const char *fmta, ...)
 #else
 void OPENSSL_showfatal(const char *fmta, ...)
 {
+    #if 0 //SGXBOX
     va_list ap;
 
     va_start(ap, fmta);
     vfprintf(stderr, fmta, ap);
     va_end(ap);
+    #endif
 }
 
 int OPENSSL_isservice(void)
@@ -1013,7 +1015,10 @@ void OpenSSLDie(const char *file, int line, const char *assertion)
 
 void *OPENSSL_stderr(void)
 {
+    #if 0 //SGXBOX
     return stderr;
+    #endif
+    return (void *)2;
 }
 
 int CRYPTO_memcmp(const volatile void *in_a, const volatile void *in_b, size_t len)

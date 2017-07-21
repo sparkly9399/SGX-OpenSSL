@@ -154,7 +154,9 @@ void ERR_load_crypto_strings(void)
     ERR_load_ENGINE_strings();
 # endif
     ERR_load_OCSP_strings();
+# ifndef OPENSSL_NO_UI
     ERR_load_UI_strings();
+#endif
 # ifdef OPENSSL_FIPS
     ERR_load_FIPS_strings();
 # endif

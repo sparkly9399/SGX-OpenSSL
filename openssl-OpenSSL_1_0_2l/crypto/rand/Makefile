@@ -78,16 +78,9 @@ clean:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 
-md_rand.o: ../../e_os.h ../../include/openssl/asn1.h
-md_rand.o: ../../include/openssl/bio.h ../../include/openssl/crypto.h
-md_rand.o: ../../include/openssl/e_os2.h ../../include/openssl/err.h
-md_rand.o: ../../include/openssl/evp.h ../../include/openssl/lhash.h
-md_rand.o: ../../include/openssl/obj_mac.h ../../include/openssl/objects.h
-md_rand.o: ../../include/openssl/opensslconf.h ../../include/openssl/opensslv.h
+md_rand.o: ../../include/openssl/e_os2.h ../../include/openssl/opensslconf.h
 md_rand.o: ../../include/openssl/ossl_typ.h ../../include/openssl/rand.h
-md_rand.o: ../../include/openssl/safestack.h ../../include/openssl/sha.h
-md_rand.o: ../../include/openssl/stack.h ../../include/openssl/symhacks.h
-md_rand.o: md_rand.c rand_lcl.h
+md_rand.o: md_rand.c
 rand_egd.o: ../../include/openssl/buffer.h ../../include/openssl/e_os2.h
 rand_egd.o: ../../include/openssl/opensslconf.h
 rand_egd.o: ../../include/openssl/ossl_typ.h ../../include/openssl/rand.h
@@ -134,18 +127,15 @@ rand_os2.o: ../../include/openssl/rand.h ../../include/openssl/safestack.h
 rand_os2.o: ../../include/openssl/sha.h ../../include/openssl/stack.h
 rand_os2.o: ../../include/openssl/symhacks.h ../cryptlib.h rand_lcl.h
 rand_os2.o: rand_os2.c
-rand_unix.o: ../../e_os.h ../../include/openssl/asn1.h
-rand_unix.o: ../../include/openssl/bio.h ../../include/openssl/buffer.h
+rand_unix.o: ../../include/openssl/asn1.h ../../include/openssl/bio.h
 rand_unix.o: ../../include/openssl/crypto.h ../../include/openssl/e_os2.h
-rand_unix.o: ../../include/openssl/err.h ../../include/openssl/evp.h
-rand_unix.o: ../../include/openssl/lhash.h ../../include/openssl/obj_mac.h
+rand_unix.o: ../../include/openssl/evp.h ../../include/openssl/obj_mac.h
 rand_unix.o: ../../include/openssl/objects.h
 rand_unix.o: ../../include/openssl/opensslconf.h
 rand_unix.o: ../../include/openssl/opensslv.h ../../include/openssl/ossl_typ.h
 rand_unix.o: ../../include/openssl/rand.h ../../include/openssl/safestack.h
 rand_unix.o: ../../include/openssl/sha.h ../../include/openssl/stack.h
-rand_unix.o: ../../include/openssl/symhacks.h ../cryptlib.h rand_lcl.h
-rand_unix.o: rand_unix.c
+rand_unix.o: ../../include/openssl/symhacks.h rand_lcl.h rand_unix.c
 rand_win.o: ../../e_os.h ../../include/openssl/asn1.h
 rand_win.o: ../../include/openssl/bio.h ../../include/openssl/buffer.h
 rand_win.o: ../../include/openssl/crypto.h ../../include/openssl/e_os2.h

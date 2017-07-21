@@ -322,6 +322,22 @@ extern "C" {
 #  define ossl_ssize_t ssize_t
 # endif
 
+#define time sgx_time
+#define localtime sgx_localtime
+#define gmtime_r sgx_gmtime_r
+#define gettimeofday sgx_gettimeofday
+#define getsockopt sgx_getsockopt
+#define setsockopt sgx_setsockopt
+#define socket sgx_socket
+#define bind sgx_bind
+#define listen sgx_listen
+#define connect sgx_connect
+#define accept sgx_accept
+#define shutdown sgx_shutdown
+#define getenv  sgx_getenv
+#define sscanf sgx_sscanf
+#define printf sgx_printf
+
 #ifdef  __cplusplus
 }
 #endif

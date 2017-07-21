@@ -65,10 +65,10 @@ my @dirs = (
 "crypto/ts",
 "crypto/srp",
 "ssl",
-"apps",
+#"apps",
 "engines",
 "engines/ccgost",
-"test",
+#"test",
 "tools"
 );
 

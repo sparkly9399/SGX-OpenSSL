@@ -213,9 +213,9 @@ extern "C" {
 #  define get_last_socket_error() errno
 #  define clear_socket_error()    errno=0
 #  define ioctlsocket(a,b,c)      ioctl(a,b,c)
-#  define closesocket(s)          close(s)
-#  define readsocket(s,b,n)       read((s),(b),(n))
-#  define writesocket(s,b,n)      write((s),(b),(n))
+#  define closesocket(s)          sgx_close(s)
+#  define readsocket(s,b,n)       sgx_read((s),(b),(n))
+#  define writesocket(s,b,n)      sgx_write((s),(b),(n))
 # endif
 
 # ifdef WIN16                   /* never the case */

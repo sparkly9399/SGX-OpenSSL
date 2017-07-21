@@ -65,6 +65,7 @@ struct LP_dir_context_st {
 
 const char *LP_find_file(LP_DIR_CTX **ctx, const char *directory)
 {
+    #if 0
     struct dirent *direntry = NULL;
 
     if (ctx == NULL || directory == NULL) {
@@ -100,10 +101,15 @@ const char *LP_find_file(LP_DIR_CTX **ctx, const char *directory)
             sizeof((*ctx)->entry_name) - 1);
     (*ctx)->entry_name[sizeof((*ctx)->entry_name) - 1] = '\0';
     return (*ctx)->entry_name;
+    #endif
+    printf("SGXBOX: LP_find_file: workaround\n");
+    abort();
+    return NULL;
 }
 
 int LP_find_file_end(LP_DIR_CTX **ctx)
 {
+    #if 0
     if (ctx != NULL && *ctx != NULL) {
         int ret = closedir((*ctx)->dir);
 
@@ -118,5 +124,9 @@ int LP_find_file_end(LP_DIR_CTX **ctx)
         }
     }
     errno = EINVAL;
+    return 0;
+    #endif
+    printf("SGXBOX: LP_find_file_end: workaround\n");
+    abort();
     return 0;
 }

@@ -943,6 +943,7 @@ STACK_OF(X509_NAME) *SSL_load_client_CA_file(const char *file)
 int SSL_add_file_cert_subjects_to_stack(STACK_OF(X509_NAME) *stack,
                                         const char *file)
 {
+    #if 0
     BIO *in;
     X509 *x = NULL;
     X509_NAME *xn = NULL;
@@ -990,6 +991,10 @@ int SSL_add_file_cert_subjects_to_stack(STACK_OF(X509_NAME) *stack,
     (void)sk_X509_NAME_set_cmp_func(stack, oldcmp);
 
     return ret;
+    #endif
+    printf("SGXBOX: SSL_add_file_cert_subjects_to_stack workaround\n");
+    abort();
+    return 1;
 }
 
 /**

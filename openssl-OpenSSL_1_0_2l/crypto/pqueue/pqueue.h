@@ -60,7 +60,9 @@
 #ifndef HEADER_PQUEUE_H
 # define HEADER_PQUEUE_H
 
+#ifndef OPENSSL_NO_FP_API //SGXBOX
 # include <stdio.h>
+#endif
 # include <stdlib.h>
 # include <string.h>
 
