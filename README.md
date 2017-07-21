@@ -22,4 +22,10 @@ This project contains modified OpenSSL codes and necessary wrapper functions to 
 
 <hr/>
 
-Some codes are came from Intel® SGX SSL https://github.com/01org/intel-sgx-ssl (md_rand.c, rand_unix.c).
+### References
+1. [SGX-Tor](https://www.usenix.org/system/files/conference/nsdi17/nsdi17-kim-seongmin.pdf): Tor anonymity network in the SGX environment (NSDI'17): https://github.com/kaist-ina/SGX-Tor.
+2. Some codes(md_rand.c, rand_unix.c) are from Intel® SGX SSL: https://github.com/01org/intel-sgx-ssl.
+
+### Contact
+Juhyeng Han sparkly9399@gmail.com
+Seongmin Kim dallas1004@gmail.com
