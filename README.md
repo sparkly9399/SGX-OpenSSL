@@ -3,7 +3,12 @@
 OpenSSL library for SGX application
 <hr/>
 
+### Description
 This project contains modified OpenSSL codes and necessary wrapper functions to be used for SGX-enabled applications. <br />
+We first ported an OpenSSL library to SGX for the [SGX-Tor project](https://www.usenix.org/system/files/conference/nsdi17/nsdi17-kim-seongmin.pdf) in 2016 and made it public as an open source at Feb 2017. <br />
+Then we cleaned up the ported OpenSSL code with the newer version of OpenSSL for other SGX applications. <br />
+We also referred to [Intel® SGX SSL project](https://github.com/01org/intel-sgx-ssl) after it was released. <br />
+This project uses "md_rand.c" and "rand_unix.c" codes from [Intel® SGX SSL project](https://github.com/01org/intel-sgx-ssl) for generating random number safely in enclave.<br />
 
 <hr/>
 
@@ -23,8 +28,9 @@ This project contains modified OpenSSL codes and necessary wrapper functions to 
 <hr/>
 
 ### References
-1. [SGX-Tor](https://www.usenix.org/system/files/conference/nsdi17/nsdi17-kim-seongmin.pdf): Tor anonymity network in the SGX environment (NSDI'17): https://github.com/kaist-ina/SGX-Tor.
-2. Some codes(md_rand.c, rand_unix.c) are from Intel® SGX SSL: https://github.com/01org/intel-sgx-ssl.
+1. [SGX-Tor](https://github.com/kaist-ina/SGX-Tor): Tor anonymity network in the SGX environment (NSDI'17). 
+Paper Link: https://www.usenix.org/system/files/conference/nsdi17/nsdi17-kim-seongmin.pdf.
+2. [Intel® SGX SSL](https://github.com/01org/intel-sgx-ssl).
 
 ### Contact
 Juhyeng Han sparkly9399@gmail.com <br />
