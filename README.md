@@ -1,5 +1,6 @@
 # SGX-OpenSSL
 
+### Overview
 OpenSSL library for SGX application
 <hr/>
 
@@ -19,18 +20,35 @@ This project uses "md_rand.c" and "rand_unix.c" codes from [Intel® SGX SSL proj
 <hr/>
 
 ### Usage:
-1. Goto openssl-OpenSSL_1_0_2l/ folder.
+1. Go to OpenSSL_SGX/ folder.
 2. Run sgx_openssl_setup.sh to configure OpenSSL.
 3. Type "make" then you will get "libcrypto.a" and "libssl.a".
-4. Include the both library files to your SGX application project.
-5. Move the wrapper codes inside of "App" and "Enclave" directory and include them to your project.
+4. Include the both static library files to your SGX application project.
+5. Copy and include the wrapper codes in "App" and "Enclave" directory to your own project.
+6. Implement your Makefile, EDL file, Linker script, Enclave configure file to build an SGX-enabled binary.
+
+For the detailed usage, you can refer to the [sample codes](#running-sample-codes)
+
+<hr/>
+
+### Running sample codes
+This project contains "Simple SSL/TLS server and client" sample codes. <br />
+I hope you can get some hints from the sample applications.
+
+1. If you did not build OpenSSL_SGX library, [build the library first](#usage).
+2. Go to SampleCode/Simple_TLS_(Client or Server)/.
+3. Type "make" to build SGX-enabled TLS server and client.
+4. Start the TLS server at SampleCode/Simple_TLS_Server/app.
+5. Start the TLS client at SampleCode/Simple_TLS_Client/app.
 
 <hr/>
 
 ### References
-1. [SGX-Tor](https://github.com/kaist-ina/SGX-Tor): Tor anonymity network in the SGX environment (NSDI'17). 
+1. [SGX-Tor](https://github.com/kaist-ina/SGX-Tor): Tor anonymity network in the SGX environment (NSDI'17). <br />
 Paper Link: https://www.usenix.org/system/files/conference/nsdi17/nsdi17-kim-seongmin.pdf.
 2. [Intel® SGX SSL](https://github.com/01org/intel-sgx-ssl).
+3. SGX-Box: Enabling Visibility on Encrypted Traffic using a Secure Middlebox Module (APNet'17) <br />
+Paper Link: http://conferences.sigcomm.org/events/apnet2017/papers/sgxbox-han.pdf.
 
 ### Contact
 Juhyeng Han sparkly9399@gmail.com <br />
