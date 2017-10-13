@@ -1,0 +1,33 @@
+/* Enclave.edl - Top EDL file. */
+
+enclave {
+	include "time.h"
+
+	from "sgx_tstdc.edl" import *;
+	
+    trusted {
+		public void ecall_start_tls_client(void);
+	};
+
+    untrusted {
+		long ocall_sgx_clock(void);		/* For Performance evaluation */
+		time_t ocall_sgx_time([out, size=t_len]time_t *timep, int t_len);
+		struct tm *ocall_sgx_localtime([in, size=t_len]const time_t *timep, int t_len);
+		struct tm *ocall_sgx_gmtime_r([in, size=t_len]const time_t *timep, int t_len, [out, size=tmp_len]struct tm *tmp, int tmp_len);
+		int ocall_sgx_gettimeofday([in, out, size=tv_size]void *tv, int tv_size); 
+		int ocall_sgx_getsockopt(int s, int level, int optname, [out, size=optval_len]char *optval, int optval_len, [in,out, size=4]int* optlen);
+        int ocall_sgx_setsockopt(int s, int level, int optname, [in, size=optlen]const void *optval, int optlen);
+        int ocall_sgx_socket(int af, int type, int protocol);		
+		int ocall_sgx_listen(int s, int backlog);
+		int ocall_sgx_bind(int s, [in, size=addr_size]const void *addr, int addr_size);
+		int ocall_sgx_connect(int s, [in, size=addrlen]const void *addr, int addrlen);
+		int ocall_sgx_accept(int s, [out, size=addr_size]void *addr, int addr_size, [in, out, size=4]int *addrlen); 
+		int ocall_sgx_shutdown(int fd, int how);
+		int ocall_sgx_read(int fd, [out, size=n]void *buf, int n);
+		int ocall_sgx_write(int fd, [in, size=n]const void *buf, int n);
+		int ocall_sgx_close(int fd);
+		int ocall_sgx_getenv([in,size=envlen]const char *env, int envlen, [out,size=ret_len]char *ret_str,int ret_len);
+		void ocall_print_string([in, string] const char *str);        
+    };
+
+};
