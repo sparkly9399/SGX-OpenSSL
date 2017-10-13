@@ -7,6 +7,7 @@
 #include <assert.h>
 
 #include "sgx_trts.h"
+#include "ssl_enclave_types.h"
 
 #include "Enclave_t.h"
 
@@ -41,8 +42,9 @@ const unsigned short **__ctype_b_loc(void);
 const int32_t **__ctype_tolower_loc(void);
 
 #define printf sgx_printf
-#define printe sgx_printe
-#define printl sgx_printl
+#define printe(fmt, ...) sgx_printe(__FUNCTION__, fmt, ##__VA_ARGS__)
+#define printl(fmt, ...) sgx_printl(__FUNCTION__, fmt, ##__VA_ARGS__)
+#define exit sgx_exit
 
 #if defined(__cplusplus)
 }

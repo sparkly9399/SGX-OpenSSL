@@ -1,7 +1,6 @@
 #include "Ocall_implements.h"
 #include "Enclave_u.h"
 
-/* For Performance evaluation */
 long ocall_sgx_clock(void)
 {
 	struct timespec tstart={0,0}, tend={0,0};
@@ -24,9 +23,9 @@ struct tm *ocall_sgx_gmtime_r(const time_t *timep, int t_len, struct tm *tmp, in
 	return gmtime_r(timep, tmp);
 }
 
-int ocall_sgx_gettimeofday(struct timeval *tv, int tv_size)
+int ocall_sgx_gettimeofday(void *tv, int tv_size)
 {
-	return gettimeofday(tv, NULL);
+	return gettimeofday((struct timeval *)tv, NULL);
 }
 
 int ocall_sgx_getsockopt(int s, int level, int optname, char *optval, int optval_len, int* optlen)
@@ -46,9 +45,9 @@ int ocall_sgx_socket(int af, int type, int protocol)
 	return retv;
 }
 
-int ocall_sgx_bind(int s, const struct sockaddr *addr, int addr_size)
+int ocall_sgx_bind(int s, const void *addr, int addr_size)
 {
-	return bind(s, addr, addr_size);
+	return bind(s, (struct sockaddr *)addr, addr_size);
 }
 
 int ocall_sgx_listen(int s, int backlog)
@@ -56,15 +55,15 @@ int ocall_sgx_listen(int s, int backlog)
 	return listen(s, backlog);
 }
 
-int ocall_sgx_connect(int s, const struct sockaddr *addr, int addrlen)
+int ocall_sgx_connect(int s, const void *addr, int addrlen)
 {
-	int retv = connect(s, addr, addrlen);
+	int retv = connect(s, (struct sockaddr *)addr, addrlen);
 	return retv;
 }
 
-int ocall_sgx_accept(int s, struct sockaddr *addr, int addr_size, int *addrlen)
+int ocall_sgx_accept(int s, void *addr, int addr_size, int *addrlen)
 {
-	return accept(s, addr, (socklen_t *)addrlen);
+	return accept(s, (struct sockaddr *)addr, (socklen_t *)addrlen);
 }
 
 int ocall_sgx_shutdown(int fd, int how)

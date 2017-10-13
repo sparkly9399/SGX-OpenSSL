@@ -1,6 +1,5 @@
 #include "Ocall_wrappers.h"
 
-/* For Performance evaluation */
 long sgx_clock(void)
 {
 	long retv;
@@ -191,7 +190,6 @@ void sgx_printe(const char *fname, const char *fmt, ...)
 {
     char ebuf[BUFSIZ] = {'\0'};
     char buf[BUFSIZ] = {'\0'};
-    char *err_prefix = "Error: ";
     va_list ap;
     va_start(ap, fmt);
     vsnprintf(buf, BUFSIZ, fmt, ap);
@@ -204,7 +202,6 @@ void sgx_printl(const char *fname, const char *fmt, ...)
 {
     char ebuf[BUFSIZ] = {'\0'};
     char buf[BUFSIZ] = {'\0'};
-    char *err_prefix = "Error: ";
     va_list ap;
     va_start(ap, fmt);
     vsnprintf(buf, BUFSIZ, fmt, ap);
