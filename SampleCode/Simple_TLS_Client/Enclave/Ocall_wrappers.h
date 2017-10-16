@@ -38,6 +38,7 @@ void sgx_printl(const char *fname, const char *fmt, ...);
 long sgx_rand(void);
 void sgx_exit(int exit_status);
 int sgx_sscanf(const char *str, const char *format, ...);
+int sgxssl_read_rand(unsigned char *rand_buf, int length_in_bytes);
 const unsigned short **__ctype_b_loc(void);
 const int32_t **__ctype_tolower_loc(void);
 

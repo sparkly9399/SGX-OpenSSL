@@ -35,15 +35,12 @@ int RAND_poll(void)
 	unsigned char rand_buf[RAND_BUF_SIZE];
 	int ret;
 	int entropy = 0;
-	
-	//printf("RAND_poll was called\n");
 
 	// ENTROPY_NEEDED is defined in rand_lcl.c as 32 Bytes = 256 bits
 	// Cannot use RAND_status() instead of the entropy check as RAND_status() calls RAND_poll().
 	while ( entropy < ENTROPY_NEEDED) {
 		ret = sgxssl_read_rand(rand_buf, RAND_BUF_SIZE);
         if (ret != 0) {
-			//printf("read_rand error 0x%llx\n", ret);
 			return 0;
 		}
 		RAND_seed(rand_buf, RAND_BUF_SIZE);

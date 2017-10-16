@@ -278,6 +278,20 @@ int sgx_sscanf(const char *str, const char *format, ...)
 	return val_cnt;
 }
 
+int sgxssl_read_rand(unsigned char *rand_buf, int length_in_bytes)
+{
+	sgx_status_t ret;
+	if (rand_buf == NULL ||	length_in_bytes <= 0) {
+		return 1;
+	}
+
+	ret = sgx_read_rand(rand_buf, length_in_bytes);
+	if (ret != SGX_SUCCESS) {
+		return 1;
+	}
+	return 0;
+}
+
 #if __BYTE_ORDER == __BIG_ENDIAN
 #define X(x) x
 #else
