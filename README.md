@@ -24,7 +24,7 @@ This project uses "md_rand.c" and "rand_unix.c" codes from [Intel® SGX SSL proj
 2. Run sgx_openssl_setup.sh to configure OpenSSL.
 3. Type "make" then you will get "libcrypto.a" and "libssl.a".
 4. Include the both static library files to your SGX application project.
-5. Copy and include the wrapper codes in "App" and "Enclave" directory to your own project.
+5. Copy and include the wrapper codes in "Wrappers/App" and "Wrappers/Enclave" directory to your own project.
 6. Implement your Makefile, EDL file, Linker script, Enclave configure file to build an SGX-enabled binary.
 
 For the detailed usage, you can refer to the [sample codes](#running-sample-codes)
