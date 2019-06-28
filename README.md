@@ -15,7 +15,7 @@ This project uses "md_rand.c" and "rand_unix.c" codes from [Intel® SGX SSL proj
 
 > Modified OpenSSL version: OpenSSL-1.0.2l https://github.com/openssl/openssl/releases/tag/OpenSSL_1_0_2l <br />
 > Tested OS: ubuntu 16.04 LTS, 4.4.0 <br />
-> Tested SGX SDK version: Intel SGX SDK Linux 2.3.1 https://github.com/01org/linux-sgx/releases/tag/sgx_2.3.1 <br />
+> Tested SGX SDK version: Intel SGX SDK Linux 2.5 https://github.com/01org/linux-sgx/releases/tag/sgx_2.5 <br />
 
 <hr/>
 
