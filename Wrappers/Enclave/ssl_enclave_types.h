@@ -1,6 +1,8 @@
 #ifndef _SSL_ENCLAVE_TYPES_
 #define _SSL_ENCLAVE_TYPES_
 
+#include <stdint.h>
+
 #if defined(__cplusplus)
 extern "C" {
 #endif
