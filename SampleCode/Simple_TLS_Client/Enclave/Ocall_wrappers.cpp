@@ -128,7 +128,6 @@ int sgx_accept(int s, struct sockaddr *addr, int *addrlen)
 		printf("OCALL FAILED!, Error code = %d\n", sgx_retv);
 		sgx_exit(EXIT_FAILURE);
 	}
-	sockaddr_in *addr_in = (sockaddr_in *)addr;
 	return retv;
 }
 
