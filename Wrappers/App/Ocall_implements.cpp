@@ -30,7 +30,7 @@ int ocall_sgx_gettimeofday(void *tv, int tv_size)
 
 int ocall_sgx_getsockopt(int s, int level, int optname, char *optval, int optval_len, int* optlen)
 {
-    return getsockopt(s, level, optname, optval, (socklen_t *)optlen);
+	return getsockopt(s, level, optname, optval, (socklen_t *)optlen);
 }
 
 int ocall_sgx_setsockopt(int s, int level, int optname, const void *optval, int optlen)
@@ -98,7 +98,7 @@ int ocall_sgx_getenv(const char *env, int envlen, char *ret_str,int ret_len)
 
 void ocall_print_string(const char *str)
 {
-    printf("%s", str);
+	printf("%s", str);
 }
 
 void ocall_sgx_exit(int e)
