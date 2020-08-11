@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-long sgx_clock(void); /* For Performance evaluation */
+long sgx_clock(void); // For performance evaluation
 time_t sgx_time(time_t *timep);
 struct tm *sgx_localtime(const time_t *timep);
 struct tm *sgx_gmtime_r(const time_t *timep, struct tm *tmp);
