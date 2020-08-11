@@ -1,4 +1,6 @@
 #include "Ocall_wrappers.h"
+#include "Enclave_t.h"
+#include "sgx_trts.h"
 
 long sgx_clock(void)
 {

@@ -1,4 +1,4 @@
-
+#include "Enclave_t.h"
 #include "Ocall_wrappers.h"
 
 #include <openssl/ssl.h>

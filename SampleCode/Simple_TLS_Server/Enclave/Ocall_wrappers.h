@@ -5,11 +5,9 @@
 #include <stdarg.h>
 #include <ctype.h>
 #include <assert.h>
+#include <time.h>
 
-#include "sgx_trts.h"
 #include "ssl_enclave_types.h"
-
-#include "Enclave_t.h"
 
 #if defined(__cplusplus)
 extern "C" {
