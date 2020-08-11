@@ -76,13 +76,13 @@ int sgx_setsockopt(int s, int level, int optname, const void *optval, int optlen
 
 int sgx_socket(int af, int type, int protocol)
 {
-		int retv;
-		sgx_status_t sgx_retv;
-		if((sgx_retv = ocall_sgx_socket(&retv, af, type, protocol)) != SGX_SUCCESS){
-			printf("OCALL FAILED!, Error code = %d\n", sgx_retv);
-			sgx_exit(EXIT_FAILURE);
-		}
-		return retv;
+	int retv;
+	sgx_status_t sgx_retv;
+	if((sgx_retv = ocall_sgx_socket(&retv, af, type, protocol)) != SGX_SUCCESS){
+		printf("OCALL FAILED!, Error code = %d\n", sgx_retv);
+		sgx_exit(EXIT_FAILURE);
+	}
+	return retv;
 }
 
 int sgx_bind(int s, const struct sockaddr *addr, int addrlen)
@@ -176,38 +176,38 @@ char *sgx_getenv(const char *env)
 	return NULL;
 }
 
-int sgx_printf(const char *fmt, ...)
+void sgx_printf(const char *fmt, ...)
 {
-    char buf[BUFSIZ] = {'\0'};
-    va_list ap;
-    va_start(ap, fmt);
-    vsnprintf(buf, BUFSIZ, fmt, ap);
-    va_end(ap);
-    ocall_print_string(buf);
+	char buf[BUFSIZ] = {'\0'};
+	va_list ap;
+	va_start(ap, fmt);
+	vsnprintf(buf, BUFSIZ, fmt, ap);
+	va_end(ap);
+	ocall_print_string(buf);
 }
 
 void sgx_printe(const char *fname, const char *fmt, ...)
 {
-    char ebuf[BUFSIZ] = {'\0'};
-    char buf[BUFSIZ] = {'\0'};
-    va_list ap;
-    va_start(ap, fmt);
-    vsnprintf(buf, BUFSIZ, fmt, ap);
-    va_end(ap);
-    snprintf(ebuf, sizeof(ebuf), "Error: %s failed!: %s\n", fname, buf);
-    ocall_print_string(ebuf);
+	char ebuf[BUFSIZ] = {'\0'};
+	char buf[BUFSIZ] = {'\0'};
+	va_list ap;
+	va_start(ap, fmt);
+	vsnprintf(buf, BUFSIZ, fmt, ap);
+	va_end(ap);
+	snprintf(ebuf, sizeof(ebuf), "Error: %s failed!: %s\n", fname, buf);
+	ocall_print_string(ebuf);
 }
 
 void sgx_printl(const char *fname, const char *fmt, ...)
 {
-    char ebuf[BUFSIZ] = {'\0'};
-    char buf[BUFSIZ] = {'\0'};
-    va_list ap;
-    va_start(ap, fmt);
-    vsnprintf(buf, BUFSIZ, fmt, ap);
-    va_end(ap);
-    snprintf(ebuf, sizeof(ebuf), "LOG: %s: %s\n", fname, buf);
-    ocall_print_string(ebuf);
+	char ebuf[BUFSIZ] = {'\0'};
+	char buf[BUFSIZ] = {'\0'};
+	va_list ap;
+	va_start(ap, fmt);
+	vsnprintf(buf, BUFSIZ, fmt, ap);
+	va_end(ap);
+	snprintf(ebuf, sizeof(ebuf), "LOG: %s: %s\n", fname, buf);
+	ocall_print_string(ebuf);
 }
 
 long sgx_rand(void)
@@ -358,5 +358,5 @@ static const int32_t *const ptable2 = table2+128;
 
 const int32_t **__ctype_tolower_loc(void)
 {
-    return (const int32_t **)&ptable2;
+	return (const int32_t **)&ptable2;
 }

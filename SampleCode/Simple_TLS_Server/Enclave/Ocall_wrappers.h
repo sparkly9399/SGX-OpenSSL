@@ -32,7 +32,7 @@ int sgx_read(int fd, void *buf, int n);
 int sgx_write(int fd, const void *buf, int n);
 int sgx_close(int fd);
 char *sgx_getenv(const char *env);
-int sgx_printf(const char *fmt, ...);
+void sgx_printf(const char *fmt, ...);
 void sgx_printe(const char *fname, const char *fmt, ...);
 void sgx_printl(const char *fname, const char *fmt, ...);
 long sgx_rand(void);
