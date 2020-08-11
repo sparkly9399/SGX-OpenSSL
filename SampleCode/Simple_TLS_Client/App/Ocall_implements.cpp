@@ -3,8 +3,8 @@
 
 long ocall_sgx_clock(void)
 {
-	struct timespec tstart={0,0}, tend={0,0};
-    clock_gettime(CLOCK_MONOTONIC, &tstart);
+	struct timespec tstart={0,0};
+	clock_gettime(CLOCK_MONOTONIC, &tstart);
 	return tstart.tv_sec * 1000000 + tstart.tv_nsec/1000; // Return micro seconds
 }
 
