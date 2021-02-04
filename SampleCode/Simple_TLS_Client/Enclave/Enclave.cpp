@@ -1,4 +1,4 @@
-
+#include "Enclave_t.h"
 #include "Ocall_wrappers.h"
 
 #include <openssl/ssl.h>
@@ -8,7 +8,7 @@
 static void init_openssl()
 {
 	OpenSSL_add_ssl_algorithms();
-    OpenSSL_add_all_ciphers();
+	OpenSSL_add_all_ciphers();
 	SSL_load_error_strings();
 }
 
@@ -122,11 +122,11 @@ static int create_socket_client(const char *ip, uint32_t port)
 	int sockfd;
 	struct sockaddr_in dest_addr;
 
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if(sockfd < 0) {
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	if(sockfd < 0) {
 		printe("socket");
 		exit(EXIT_FAILURE);
-    }
+	}
 
 	dest_addr.sin_family=AF_INET;
 	dest_addr.sin_port=htons(port);
@@ -159,8 +159,8 @@ static SSL_CTX *create_context()
 
 void ecall_start_tls_client(void)
 {
-	SSL *ssl;
-	int sock;
+    SSL *ssl;
+    int sock;
     SSL_CTX *ctx;
     const long flags = SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION;
     const char *serv_ip = "127.0.0.1";
@@ -175,19 +175,19 @@ void ecall_start_tls_client(void)
 
     ssl = SSL_new(ctx);
     SSL_set_fd(ssl, sock);
-	if (SSL_connect(ssl) <= 0) {
+    if (SSL_connect(ssl) <= 0) {
         printe("SSL_connect");
         exit(EXIT_FAILURE);
-	}
+    }
  
-    printl("ciphersuit: %s", SSL_get_current_cipher(ssl)->name);
+    printl("ciphersuite: %s", SSL_get_current_cipher(ssl)->name);
     /* Send buffer to TLS server */
     const char *send_buf = "Hello TLS Server!";
-	SSL_write(ssl, send_buf, strlen(send_buf)+1);
+    SSL_write(ssl, send_buf, strlen(send_buf)+1);
 
     printl("Close SSL/TLS client");
     
-	SSL_free(ssl);
+    SSL_free(ssl);
     SSL_CTX_free(ctx);
     sgx_close(sock);
     cleanup_openssl();

@@ -1,3 +1,4 @@
+#include "Enclave_t.h"
 #include "Ocall_wrappers.h"
 
 #include <openssl/ssl.h>
@@ -6,7 +7,7 @@
 static void init_openssl()
 {
 	OpenSSL_add_ssl_algorithms();
-    OpenSSL_add_all_ciphers();
+	OpenSSL_add_all_ciphers();
 	SSL_load_error_strings();
 }
 
@@ -66,7 +67,7 @@ static X509 *generateCertificate(EVP_PKEY *pkey)
 
 static void configure_context(SSL_CTX *ctx)
 {
-    EVP_PKEY *pkey = generatePrivateKey();
+	EVP_PKEY *pkey = generatePrivateKey();
 	X509 *x509 = generateCertificate(pkey);
 
 	SSL_CTX_use_certificate(ctx, x509);
@@ -91,20 +92,20 @@ static int create_socket_server(int port)
 
     s = socket(AF_INET, SOCK_STREAM, 0);
     if (s < 0) {
-    	printe("sgx_socket");
-		exit(EXIT_FAILURE);
+        printe("sgx_socket");
+        exit(EXIT_FAILURE);
     }
     if (setsockopt(s, SOL_SOCKET, SO_REUSEADDR, (const void *)&optval, sizeof(int)) < 0) {
-		printe("sgx_setsockopt");
-		exit(EXIT_FAILURE);
+        printe("sgx_setsockopt");
+        exit(EXIT_FAILURE);
     }
     if (bind(s, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
-    	printe("sgx_bind");
-		exit(EXIT_FAILURE);
+        printe("sgx_bind");
+        exit(EXIT_FAILURE);
     }
     if (listen(s, 128) < 0) {
-    	printe("sgx_listen");
-		exit(EXIT_FAILURE);
+        printe("sgx_listen");
+        exit(EXIT_FAILURE);
     }
     return s;
 }
@@ -121,8 +122,8 @@ void ecall_start_tls_server(void)
 
     sock = create_socket_server(4433);
     if(sock < 0) {
-		printe("create_socket_client");
-		exit(EXIT_FAILURE);
+        printe("create_socket_client");
+        exit(EXIT_FAILURE);
     }
 
     /* Handle SSL/TLS connections */
@@ -139,9 +140,9 @@ void ecall_start_tls_server(void)
             exit(EXIT_FAILURE);
         }
 
-		cli = SSL_new(ctx);
+	cli = SSL_new(ctx);
         SSL_set_fd(cli, client);
-		if (SSL_accept(cli) <= 0) {
+	if (SSL_accept(cli) <= 0) {
             printe("SSL_accept");
             exit(EXIT_FAILURE);
         }

@@ -5,17 +5,15 @@
 #include <stdarg.h>
 #include <ctype.h>
 #include <assert.h>
+#include <time.h>
 
-#include "sgx_trts.h"
 #include "ssl_enclave_types.h"
-
-#include "Enclave_t.h"
 
 #if defined(__cplusplus)
 extern "C" {
 #endif
 
-long sgx_clock(void); /* For Performance evaluation */
+long sgx_clock(void); // For performance evaluation
 time_t sgx_time(time_t *timep);
 struct tm *sgx_localtime(const time_t *timep);
 struct tm *sgx_gmtime_r(const time_t *timep, struct tm *tmp);
